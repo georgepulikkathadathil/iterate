@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.aacharya">
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +12,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".FeedActivity" />
-        <activity android:name=".StartActivity">
+        <activity android:name=".StartActivity"></activity>
+        <activity android:name=".mentorProfile"></activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
