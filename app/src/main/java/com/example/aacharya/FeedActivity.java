@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.design.widget.BottomNavigationView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,11 +20,16 @@ public class FeedActivity extends AppCompatActivity {
     int[] IMAGES = {R.drawable.javacourse1,R.drawable.javacourse2,R.drawable.pythoncourse1,R.drawable.pythoncourse2};
     ListView listView;
     CustomAdapter customAdapter;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
+
 
         listView = (ListView) findViewById(R.id.listView);
         customAdapter = new CustomAdapter();
@@ -59,5 +65,33 @@ public class FeedActivity extends AppCompatActivity {
             return view;
         }
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                    switch (menuItem.getItemId()) {
+                        case R.id.home:
+                            //startActivity(new Intent(FeedActivity.this, FeedActivity.class));
+                            break;
+                        case R.id.search:
+                            //startActivity(new Intent(FeedActivity.this, Search_Activity.class));
+                            break;
+                        case R.id.add:
+                            //startActivity(new Intent(FeedActivity.this, SelectDesignType.class));
+                            break;
+                        case R.id.heart:
+                            //startActivity(new Intent(FeedActivity.this, FavoriteActivity.class));
+                            break;
+                        case R.id.profile:
+                            //startActivity(new Intent(FeedActivity.this, ProfileActivity.class));
+                            break;
+                    }
+
+
+                    return true;
+                }
+            };
 
 }
